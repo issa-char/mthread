@@ -1,4 +1,5 @@
 use std::net::TcpListener;
+mod r_request;
 
 fn main() {
 
@@ -6,7 +7,8 @@ fn main() {
     
     for stream in listener.incoming(){
         let stream = stream.unwrap();
-        println!("connection established")
+        println!("connection established");
+        r_request::handle_req::h_req(stream);
     }
 
     
